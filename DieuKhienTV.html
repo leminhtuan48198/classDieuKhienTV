@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class TiVi{
+        kenh;
+        amLuong;
+        trangThai;
+
+        constructor(kenh, amLuong, trangThai) {
+            this.kenh = kenh;
+            this.amLuong = amLuong;
+            this.trangThai = trangThai;
+        }
+
+        getKenh() {
+            return this.kenh;
+        }
+
+        getAmLuong() {
+            return this.amLuong;
+        }
+
+        getTrangThai() {
+            return this.trangThai;
+        }
+        setKenh(kenh){
+           if(this.trangThai) {this.kenh=kenh;}
+        }
+        setTrangThai(trangThai){
+            this.trangThai=trangThai
+        }
+        inVol(){
+            if(this.trangThai) {this.amLuong++}
+        }
+        deVol(){
+            if(this.trangThai) {this.amLuong--}
+        }
+
+    }
+    class DieuKhien{
+        tivi;
+
+        constructor(tivi) {
+            this.tivi = tivi;
+        }
+        chuyenKenh(kenh){
+            if(this.tivi.trangThai) { this.tivi.setKenh(kenh);}
+        }
+        tangAmLuong(){
+            if(this.tivi.trangThai) { this.tivi.inVol()}
+        }
+        giamAmluong(){
+            if(this.tivi.trangThai) {this.tivi.deVol()}
+        }
+        tatTV(){
+            this.tivi.setTrangThai(false)
+        }
+        batTV(){
+            this.tivi.setTrangThai(true)
+        }
+
+
+    }
+let tivi1=new TiVi(1,20,false);
+    let remote=new DieuKhien(tivi1);
+    tivi1.setTrangThai(true);
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+    tivi1.setKenh(7);
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+    remote.chuyenKenh(3);
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+    remote.tangAmLuong();
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+    remote.tangAmLuong();
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+    remote.tatTV()
+    document.write("Tivi đang "+tivi1.getTrangThai()+" Kênh hiện tại là "+tivi1.getKenh()+". Âm lượng là "+tivi1.getAmLuong()+"<br>")
+
+</script>
+</body>
+</html>
